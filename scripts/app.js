@@ -18,7 +18,7 @@ function init() {
   const numOfCells = width * width
 
   // * GAME VARIABLES 
-  let ruPosition = 0
+  let ruPosition = 90
 
 
   // * FUNCTIONS 
@@ -35,9 +35,31 @@ function init() {
   }
   createGrid()
 
+  // create a function which listens to the keys to move ruPaul at the bottom of the page 
+  function handleKeyUp(e) {
+    console.log(e.keyCode)
+    cells[ruPosition].classList.remove('rupaul')
+    const x = ruPosition % width
+    switch (e.keyCode) {
+      case 39: 
+        if (x < width - 1) {
+          ruPosition++
+        }
+        break
+      case 37:
+        if (x > 0) {
+          ruPosition--
+        }  
+        break
+      default:
+        break
+    }
+    cells[ruPosition].classList.add('rupaul')
+  } 
+
 
   // * EVENT LISTENERS
-
+  document.addEventListener('keyup', handleKeyUp)
 
 }
 
