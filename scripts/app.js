@@ -10,7 +10,7 @@
 function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
-  console.log(grid)
+  const start = document.querySelector('#start')
   const cells = []
 
   // * GRID VARIABLES
@@ -22,6 +22,7 @@ function init() {
   let michellePosition = 20
   let rossPosition = 30
   let carsonPosition = 40
+  let shangelaPosition = null
 
 
   // * FUNCTIONS 
@@ -46,6 +47,7 @@ function init() {
     console.log(e.keyCode)
     cells[ruPosition].classList.remove('rupaul')
     const x = ruPosition % width
+    // const x = Math.floor(shangelaPosition / width)
     switch (e.keyCode) {
       case 39: 
         if (x < width - 1) {
@@ -56,17 +58,38 @@ function init() {
         if (x > 0) {
           ruPosition--
         }  
-        break
+        break  
+      // case 32:
+      //   if (y < width - 1) {
+      //     shangelaPosition += (width - 3)
+      //     cells[shangelaPosition].classList.add('shangela')
+      //   }
       default:
         break
     }
     cells[ruPosition].classList.add('rupaul')
   } 
 
+  // create a function which starts the game and initiates a timer of how long the game will last until you are 'killed'
+  function startGame() {
+    console.log('clicked')
+    let timerID = null
+    let count = 0
+    timerID = setInterval(() => {
+      count++
+      if (count > 4) {
+        clearInterval(timerID)
+        window.alert('game over')
+      } else {
+        console.log(count)
+      }
+    }, 1000)
+  }
+
 
   // * EVENT LISTENERS
   document.addEventListener('keyup', handleKeyUp)
-
+  start.addEventListener('click', startGame)
 }
 
 window.addEventListener('DOMContentLoaded', init)
