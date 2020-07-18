@@ -19,6 +19,9 @@ function init() {
 
   // * GAME VARIABLES 
   let ruPosition = 90
+  let michellePosition = 20
+  let rossPosition = 30
+  let carsonPosition = 40
 
 
   // * FUNCTIONS 
@@ -32,6 +35,9 @@ function init() {
       grid.appendChild(cell)
     }
     cells[ruPosition].classList.add('rupaul')
+    cells[michellePosition].classList.add('michelle')
+    cells[rossPosition].classList.add('ross')
+    cells[carsonPosition].classList.add('carson')
   }
   createGrid()
 

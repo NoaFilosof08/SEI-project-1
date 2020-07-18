@@ -43,3 +43,21 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.grid div.michelle {
+  background-image: url('../assets/michelle.img1.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.grid div.ross {
+  background-image: url('../assets/ross.img1.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.grid div.carson {
+  background-image: url('../assets/carson.img1.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
