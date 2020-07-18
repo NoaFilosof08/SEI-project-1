@@ -9,15 +9,31 @@
 
 function init() {
   // * DOM ELEMENTS
-
+  const grid = document.querySelector('.grid')
+  console.log(grid)
+  const cells = []
 
   // * GRID VARIABLES
-
+  const width = 10
+  const numOfCells = width * width
 
   // * GAME VARIABLES 
+  let ruPosition = 0
 
 
   // * FUNCTIONS 
+  // create a for loop to create 100 cells which will thus create the grid - when this happens - create an element called div (so this will happen each time with the loop), each loop, push the div (just created) into an array of cells, and also append the cell (div just created) to the parent grid.
+  function createGrid() {
+    console.log('hello')
+    for (let i = 0; i < numOfCells; i++) {
+      const cell = document.createElement('div')
+      cells.push(cell)
+      cell.innerHTML = i
+      grid.appendChild(cell)
+    }
+    cells[ruPosition].classList.add('rupaul')
+  }
+  createGrid()
 
 
   // * EVENT LISTENERS

@@ -5,6 +5,7 @@
 body {
   height: 100vh;
   margin: 0;
+  font-family: 'Noto Serif', serif;
 }
 
 .controls-wrapper {
@@ -23,7 +24,7 @@ body {
 .grid {
   align-items: center;
   display: flex;
-  flex-wrap: flex;
+  flex-wrap: wrap;
   height: 100%;
   justify-content: center;
   height: 600px;
@@ -34,6 +35,7 @@ body {
   flex-grow: 1;
   height: 10%;
   width: 10%;
+  border: 1px solid lightblue;
 }
 
 .grid div.rupaul {
