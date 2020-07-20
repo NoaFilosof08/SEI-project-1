@@ -18,9 +18,9 @@ function init() {
   const numOfCells = width * width
 
   // * GAME VARIABLES 
-  let ruPosition = 390
+  let ruPosition = 370
   let michellePosition = width
-  const michelleStart = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+  const michelleStart = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   // let rossPosition = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   // let alien2Position = 20
   // let carsonPosition = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 74, 75, 76]
@@ -69,6 +69,11 @@ function init() {
     michellePosition = michellePosition - 1
     createMichelles()
   }
+  function moveMichelleDown() {
+    removeMichelles()
+    michellePosition += width
+    createMichelles()
+  }
 
   function moveMichelle() {
     let michelleIsMovingRight = true
@@ -79,9 +84,10 @@ function init() {
         moveMichelleLeft()
       }
       numberOfMoves++
-      if (numberOfMoves === 3) {
+      if (numberOfMoves > 3) {
         numberOfMoves = 0
         michelleIsMovingRight = !michelleIsMovingRight
+        moveMichelleDown()
       } 
     }, 1000)
   }
