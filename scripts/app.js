@@ -47,27 +47,27 @@ function init() {
   }
   addImages()
 
-  function alienGridPosition() {
+  function createMichelles() {
     michelleStart.forEach(alien =>
       cells[michellePosition + alien].classList.add('michelle'))
   }
-  alienGridPosition()
+  createMichelles()
 
-  function removeAliens() {
+  function removeMichelles() {
     michelleStart.forEach(alien =>
       cells[michellePosition + alien].classList.remove('michelle'))
   }
 
   function moveMichelleRight() {
-    removeAliens()
+    removeMichelles()
     michellePosition = michellePosition + 1
-    alienGridPosition()
+    createMichelles()
   }
 
   function moveMichelleLeft() {
-    removeAliens()
+    removeMichelles()
     michellePosition = michellePosition - 1
-    alienGridPosition()
+    createMichelles()
   }
 
   function moveMichelle() {
@@ -85,8 +85,6 @@ function init() {
       } 
     }, 1000)
   }
-
-
 
   // create a function which listens to the keys to move ruPaul at the bottom of the page 
   function handleKeyUp(e) {
@@ -116,40 +114,12 @@ function init() {
     cells[ruPosition].classList.add('rupaul')
   } 
 
-  //more variables (need to move up)
-  // const alienChangePattern = [
-  //   -1, 
-  //   width,
-  //   1, 1, 
-  //   width, 
-  //   -1,]
-
-  // function alienMovements() {
-  //   setInterval(() => {
-  //     alienGridPosition.forEach(alien => {
-  //       cells[alien].classList.remove('alien')
-  //     })
-  //     console.log
-
-  //     alienGridPosition = alienGridPosition.map(alien => {
-  //       return alien + alienChangePattern[count]
-  //     })
-
-  //     alienGridPosition.forEach(alien => {
-  //       cells[alien].classList.add('alien')
-  //     })
-  //     count++
-  //   })
-  // }
-
   // create a function which starts the game and initiates a timer of how long the game will last until you are 'killed'
   // write a second timer function which removes michelle/carson/ross from their places and pushes them down the grid one row after 10 seconds 
 
   function startGame() {
     moveMichelle()
   }
-
-
 
   // * EVENT LISTENERS
   document.addEventListener('keyup', handleKeyUp)
