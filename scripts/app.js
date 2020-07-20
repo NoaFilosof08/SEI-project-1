@@ -19,21 +19,24 @@ function init() {
 
   // * GAME VARIABLES 
   let ruPosition = 390
-  let michellePosition = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]
-  let alien1Position = 20
-  let rossPosition = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
-  let alien2Position = 20
-  let carsonPosition = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 74, 75, 76, 77]
-  let alien3Position = 20
+  let michellePosition = width
+  const michelleStart = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+  // let rossPosition = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
+  // let alien2Position = 20
+  // let carsonPosition = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 74, 75, 76]
+  // let alien3Position = 20
+  let timerID = null
+  let numberOfMoves = 0
 
   // * FUNCTIONS 
   // create a for loop to create 100 cells which will thus create the grid - when this happens - create an element called div (so this will happen each time with the loop), each loop, push the div (just created) into an array of cells, and also append the cell (div just created) to the parent grid.
+  
   function createGrid() {
     console.log('hello')
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
-      // cell.innerHTML = i
+      cell.innerHTML = i
       grid.appendChild(cell)
     }
   }
@@ -45,14 +48,45 @@ function init() {
   addImages()
 
   function alienGridPosition() {
-    michellePosition.forEach(alien =>
-      cells[alien1Position + alien].classList.add('michelle'))
-    rossPosition.forEach(alien =>
-      cells[alien2Position + alien].classList.add('ross'))
-    carsonPosition.forEach(alien =>
-      cells[alien3Position + alien].classList.add('carson'))
+    michelleStart.forEach(alien =>
+      cells[michellePosition + alien].classList.add('michelle'))
   }
   alienGridPosition()
+
+  function removeAliens() {
+    michelleStart.forEach(alien =>
+      cells[michellePosition + alien].classList.remove('michelle'))
+  }
+
+  function moveMichelleRight() {
+    removeAliens()
+    michellePosition = michellePosition + 1
+    alienGridPosition()
+  }
+
+  function moveMichelleLeft() {
+    removeAliens()
+    michellePosition = michellePosition - 1
+    alienGridPosition()
+  }
+
+  function moveMichelle() {
+    let michelleIsMovingRight = true
+    timerID = setInterval(() => {
+      if (michelleIsMovingRight) {
+        moveMichelleRight()
+      } else {
+        moveMichelleLeft()
+      }
+      numberOfMoves++
+      if (numberOfMoves === 3) {
+        numberOfMoves = 0
+        michelleIsMovingRight = !michelleIsMovingRight
+      } 
+    }, 1000)
+  }
+
+
 
   // create a function which listens to the keys to move ruPaul at the bottom of the page 
   function handleKeyUp(e) {
@@ -82,25 +116,39 @@ function init() {
     cells[ruPosition].classList.add('rupaul')
   } 
 
+  //more variables (need to move up)
+  // const alienChangePattern = [
+  //   -1, 
+  //   width,
+  //   1, 1, 
+  //   width, 
+  //   -1,]
+
+  // function alienMovements() {
+  //   setInterval(() => {
+  //     alienGridPosition.forEach(alien => {
+  //       cells[alien].classList.remove('alien')
+  //     })
+  //     console.log
+
+  //     alienGridPosition = alienGridPosition.map(alien => {
+  //       return alien + alienChangePattern[count]
+  //     })
+
+  //     alienGridPosition.forEach(alien => {
+  //       cells[alien].classList.add('alien')
+  //     })
+  //     count++
+  //   })
+  // }
+
   // create a function which starts the game and initiates a timer of how long the game will last until you are 'killed'
   // write a second timer function which removes michelle/carson/ross from their places and pushes them down the grid one row after 10 seconds 
+
   function startGame() {
-    console.log('clicked')
-    let timerID = null
-    let count = 0
-    timerID = setInterval(() => {
-      if (count > 3) {
-        clearInterval(timerID)
-        cells[michellePosition].classList.remove('michelle')
-        window.alert('game over')
-      } 
-      count++
-      cells[michellePosition].classList.remove('michelle')
-      michellePosition += width 
-      console.log(michellePosition)
-      cells[michellePosition].classList.add('michelle')
-    }, 1000)
+    moveMichelle()
   }
+
 
 
   // * EVENT LISTENERS
