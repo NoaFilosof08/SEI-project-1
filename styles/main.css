@@ -13,6 +13,7 @@ body {
 .title {
   color: white;
   text-align: center;
+  margin: 20px;
 }
 
 .controls-wrapper {
@@ -29,6 +30,7 @@ button {
   font-size: 15px;
   font-size: bold;
   padding: 20px;
+  margin: 20px;
   background-image: url('../assets/workroom.img1.jpeg');
 }
 
@@ -36,7 +38,8 @@ button {
   height: 90vh;
   display: flex;
   justify-content: center;
-  color: white
+  color: white;
+  margin: 20px;
 }
 
 .grid {
