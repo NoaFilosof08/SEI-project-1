@@ -7,6 +7,7 @@ body {
   margin: 0;
   font-family: 'Red Rose', cursive;
   font-size: 10px;
+  background-color: black;
 }
 
 .controls-wrapper {
@@ -15,17 +16,22 @@ body {
   justify-content: space-evenly;
   align-items: center;
   font-size: 15px;
+  color: white;
 }
 
 button {
   font-family: 'Red Rose', cursive;
   font-size: 15px;
+  font-size: bold;
+  padding: 20px;
+  background-image: url('../assets/workroom.img1.jpeg');
 }
 
 .grid-wrapper {
   height: 90vh;
   display: flex;
   justify-content: center;
+  color: white
 }
 
 .grid {
@@ -42,7 +48,7 @@ button {
   flex-grow: 1;
   height: 5%;
   width: 5%;
-  border: 1px solid lightblue;
+  border: 1px dashed lightgrey;
 }
 
 .grid div.rupaul {
