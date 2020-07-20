@@ -19,19 +19,12 @@ function init() {
 
   // * GAME VARIABLES 
   let ruPosition = 390
-  const aliens = [1, 2, 3, 4, 5, 6, 7, 8]
-  // let aliensPosition = 3
-  // let aliens = []
-  // let createAlien = createAliens()
-  let michellePosition = 60
-  // let rossPosition = 30
-  // let carsonPosition = 40
-  // let shangelaPosition = null
-
-  // function createAlien() {
-  //   aliens.forEach(alien => cells[aliensPosition].classList.add('alien'))
-  // }
-  // createAlien()
+  let michellePosition = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]
+  let alien1Position = 20
+  let rossPosition = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
+  let alien2Position = 20
+  let carsonPosition = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 74, 75, 76, 77]
+  let alien3Position = 20
 
   // * FUNCTIONS 
   // create a for loop to create 100 cells which will thus create the grid - when this happens - create an element called div (so this will happen each time with the loop), each loop, push the div (just created) into an array of cells, and also append the cell (div just created) to the parent grid.
@@ -43,13 +36,23 @@ function init() {
       // cell.innerHTML = i
       grid.appendChild(cell)
     }
-    cells[ruPosition].classList.add('rupaul')
-    cells[michellePosition].classList.add('michelle')
-    // cells[aliensPosition].classList.add('alien')
-    // cells[rossPosition].classList.add('ross')
-    // cells[carsonPosition].classList.add('carson')
   }
   createGrid()
+
+  function addImages() {
+    cells[ruPosition].classList.add('rupaul')
+  }
+  addImages()
+
+  function alienGridPosition() {
+    michellePosition.forEach(alien =>
+      cells[alien1Position + alien].classList.add('michelle'))
+    rossPosition.forEach(alien =>
+      cells[alien2Position + alien].classList.add('ross'))
+    carsonPosition.forEach(alien =>
+      cells[alien3Position + alien].classList.add('carson'))
+  }
+  alienGridPosition()
 
   // create a function which listens to the keys to move ruPaul at the bottom of the page 
   function handleKeyUp(e) {
@@ -78,14 +81,6 @@ function init() {
     }
     cells[ruPosition].classList.add('rupaul')
   } 
-
-  // create a function which hosts all the 'aliens' and duplicates them on the page 
-  // function createAliens() {
-  //   const names = ['michelle', 'carson', 'ross']
-  //   for (let names = 0; names < (width * 3); names++)
-  //     aliens.push(names)
-  //   return names
-  // }
 
   // create a function which starts the game and initiates a timer of how long the game will last until you are 'killed'
   // write a second timer function which removes michelle/carson/ross from their places and pushes them down the grid one row after 10 seconds 
