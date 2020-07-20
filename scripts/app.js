@@ -21,10 +21,6 @@ function init() {
   let ruPosition = 370
   let michellePosition = width
   const michelleStart = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
-  // let rossPosition = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
-  // let alien2Position = 20
-  // let carsonPosition = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 74, 75, 76]
-  // let alien3Position = 20
   let timerID = null
   let numberOfMoves = 0
 
@@ -32,7 +28,6 @@ function init() {
   // create a for loop to create 100 cells which will thus create the grid - when this happens - create an element called div (so this will happen each time with the loop), each loop, push the div (just created) into an array of cells, and also append the cell (div just created) to the parent grid.
   
   function createGrid() {
-    console.log('hello')
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
@@ -74,7 +69,7 @@ function init() {
     michellePosition += width
     createMichelles()
   }
-
+// need to debug to say that when michelle position reaches 300 it will clear interval 
   function moveMichelle() {
     let michelleIsMovingRight = true
     timerID = setInterval(() => {
@@ -84,20 +79,22 @@ function init() {
         moveMichelleLeft()
       }
       numberOfMoves++
-      if (numberOfMoves > 3) {
+      if (numberOfMoves === 4) {
         numberOfMoves = 0
         michelleIsMovingRight = !michelleIsMovingRight
         moveMichelleDown()
       } 
-    }, 1000)
+      if (michellePosition === 300) {
+        clearInterval(timerID)
+      }
+    }, 100)
   }
 
   // create a function which listens to the keys to move ruPaul at the bottom of the page 
   function handleKeyUp(e) {
-    console.log(e.keyCode)
     cells[ruPosition].classList.remove('rupaul')
     const x = ruPosition % width
-    // const x = Math.floor(shangelaPosition / width)
+    // const y = Math.floor(shangelaPosition / width)
     switch (e.keyCode) {
       case 39: 
         if (x < width - 1) {
