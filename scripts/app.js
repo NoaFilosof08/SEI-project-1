@@ -11,16 +11,18 @@ function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
   const start = document.querySelector('#start')
+  const audio = document.querySelector('#audio')
   const cells = []
 
   // * GRID VARIABLES
-  const width = 20
+  const width = 15
   const numOfCells = width * width
 
   // * GAME VARIABLES 
-  let ruPosition = 370
+  let ruPosition = 217
   let michellePosition = width
-  const michelleStart = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
+  const michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
+  // const michelleStart = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   let timerID = null
   let numberOfMoves = 0
 
@@ -31,7 +33,7 @@ function init() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
-      cell.innerHTML = i
+      // cell.innerHTML = i
       grid.appendChild(cell)
     }
   }
@@ -84,7 +86,7 @@ function init() {
         michelleIsMovingRight = !michelleIsMovingRight
         moveMichelleDown()
       } 
-      if (michellePosition === 300) {
+      if (michellePosition === 135) {
         clearInterval(timerID)
       }
     }, 100)
@@ -119,8 +121,14 @@ function init() {
 
   // create a function which starts the game and initiates a timer of how long the game will last until you are 'killed'
   // write a second timer function which removes michelle/carson/ross from their places and pushes them down the grid one row after 10 seconds 
+  
+  function playIntroMusic() {
+    audio.src = 'https://www.youtube.com/embed/aIG97MuVao8'
+    audio.play() 
+  }
 
   function startGame() {
+    playIntroMusic()
     moveMichelle()
   }
 
