@@ -14,16 +14,16 @@ function init() {
   const cells = []
 
   // * GRID VARIABLES
-  const width = 10
+  const width = 20
   const numOfCells = width * width
 
   // * GAME VARIABLES 
-  let ruPosition = 90
-  // const aliens = [1, 2, 3, 4, 5, 6, 7, 8]
+  let ruPosition = 390
+  const aliens = [1, 2, 3, 4, 5, 6, 7, 8]
   // let aliensPosition = 3
   // let aliens = []
   // let createAlien = createAliens()
-  let michellePosition = width + 10
+  let michellePosition = 60
   // let rossPosition = 30
   // let carsonPosition = 40
   // let shangelaPosition = null
@@ -40,7 +40,7 @@ function init() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
-      cell.innerHTML = i
+      // cell.innerHTML = i
       grid.appendChild(cell)
     }
     cells[ruPosition].classList.add('rupaul')
