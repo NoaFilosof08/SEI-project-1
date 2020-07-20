@@ -7,7 +7,7 @@ body {
   margin: 0;
   font-family: 'Red Rose', cursive;
   font-size: 10px;
-  background-color: black;
+  background-image: url('../assets/sparkle.img2.jpg');
 }
 
 .title {
