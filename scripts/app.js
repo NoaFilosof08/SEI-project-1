@@ -119,7 +119,7 @@ function init() {
         moveLaser()
       }
 
-      if (laserPosition === michellePosition || laserPosition < width) {
+      if (cells[laserPosition].classList.contains('michelle') || laserPosition < width) {
         clearInterval(laserTimerID)
         cells[michellePosition].classList.remove('michelle')
         removeLaser()
