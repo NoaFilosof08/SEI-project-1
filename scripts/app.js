@@ -12,6 +12,7 @@ function init() {
   const grid = document.querySelector('.grid')
   const start = document.querySelector('#start')
   const audio = document.querySelector('#audio')
+  const scoreDisplay = document.querySelector('#score-display')
   const cells = []
 
   // * GRID VARIABLES
@@ -25,6 +26,7 @@ function init() {
   let laserPosition = ruPosition - width
   let timerID = null
   let numberOfMoves = 0
+  let score = 0
 
   // * FUNCTIONS 
   // Functions for beginning of game
@@ -111,14 +113,19 @@ function init() {
   function shootingLaser() {
     laserPosition = ruPosition - width
     let moveLaserVertically = true
-    timerID = setInterval(() => {
+    let laserTimerID = null
+    laserTimerID = setInterval(() => {
       if (moveLaserVertically) {
         moveLaser()
-      } 
-      if (laserPosition === michellePositon) {
+      }
+
+      if (cells[laserPosition].classList.contains('michelle') || laserPosition < width) {
+        clearInterval(laserTimerID)
         removeLaser()
-        cells[michellePosition].classList.remove('michelle')
-        clearInterval(timerID)
+        removeMichelles()
+        score += 1000
+        scoreDisplay.innerHTML = score
+        cells[michellePosition + alien].classList.remove('michelle')
       }
     }, 300)
   }
