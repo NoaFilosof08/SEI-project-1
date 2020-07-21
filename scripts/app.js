@@ -22,13 +22,11 @@ function init() {
   let ruPosition = 217
   let michellePosition = width
   const michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
-  // const michelleStart = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   let timerID = null
   let numberOfMoves = 0
 
   // * FUNCTIONS 
-  // create a for loop to create 100 cells which will thus create the grid - when this happens - create an element called div (so this will happen each time with the loop), each loop, push the div (just created) into an array of cells, and also append the cell (div just created) to the parent grid.
-  
+  // Functions for beginning of game
   function createGrid() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
@@ -50,6 +48,8 @@ function init() {
   }
   createMichelles()
 
+  // Functions for movement of Aliens 
+  
   function removeMichelles() {
     michelleStart.forEach(alien =>
       cells[michellePosition + alien].classList.remove('michelle'))
@@ -92,11 +92,10 @@ function init() {
     }, 100)
   }
 
-  // create a function which listens to the keys to move ruPaul at the bottom of the page 
+  // EXECUTIONS which handle event listeners
   function handleKeyUp(e) {
     cells[ruPosition].classList.remove('rupaul')
     const x = ruPosition % width
-    // const y = Math.floor(shangelaPosition / width)
     switch (e.keyCode) {
       case 39: 
         if (x < width - 1) {
@@ -108,20 +107,12 @@ function init() {
           ruPosition--
         }  
         break  
-      // case 32:
-      //   if (y < width - 1) {
-      //     shangelaPosition += (width - 3)
-      //     cells[shangelaPosition].classList.add('shangela')
-      //   }
       default:
         break
     }
     cells[ruPosition].classList.add('rupaul')
   } 
 
-  // create a function which starts the game and initiates a timer of how long the game will last until you are 'killed'
-  // write a second timer function which removes michelle/carson/ross from their places and pushes them down the grid one row after 10 seconds 
-  
   function playIntroMusic() {
     audio.src = 'https://www.youtube.com/embed/aIG97MuVao8'
     audio.play() 
