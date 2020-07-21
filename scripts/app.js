@@ -115,11 +115,11 @@ function init() {
         console.log(moveLaser())
       } 
       if (laserPosition === michellePositon) {
-        cells[laserPosition].classList.remove('laser')
-        cells[michellePosition + alien].classList.remove('michelle')
         clearInterval()
+        cells[laserPosition].classList.remove('laser')
+        cells[michellePosition].classList.remove('michelle')
       }
-    }, 500)
+    }, 200)
   }
 
   // EXECUTIONS which handle event listeners
