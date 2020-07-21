@@ -63,7 +63,7 @@ button {
 }
 
 .grid div.rupaul {
-  background-image: url('../assets/rupaul.img1.jpeg');
+  background-image: url('../assets/rupaul.img2.jpeg');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -73,7 +73,6 @@ button {
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 20px;
-  margin: 10px;
 }
 
 .grid div.laser {
