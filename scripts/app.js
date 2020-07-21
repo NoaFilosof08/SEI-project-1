@@ -96,7 +96,6 @@ function init() {
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
   function createLaser() {
     cells[laserPosition].classList.add('laser')
-    
   }
 
   function removeLaser() {
@@ -104,9 +103,9 @@ function init() {
   }
 
   function moveLaser() {
-    createLaser()
-    laserPosition = laserPosition - width 
     removeLaser()
+    laserPosition = laserPosition - width 
+    createLaser()
   }
 
   function shootingLaser() {
