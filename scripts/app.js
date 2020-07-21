@@ -119,12 +119,15 @@ function init() {
         moveLaser()
       }
 
-      if (cells[laserPosition].classList.contains('michelle') || laserPosition < width) {
+      if (cells[laserPosition].classList.contains('michelle')) {
         clearInterval(laserTimerID)
         cells[michellePosition].classList.remove('michelle')
         removeLaser()
         score += 1000
         scoreDisplay.innerHTML = score
+      } else if (laserPosition < width) {
+        clearInterval(laserTimerID)
+        removeLaser()
       }
     }, 300)
   }
