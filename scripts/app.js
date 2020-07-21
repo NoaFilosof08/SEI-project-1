@@ -49,7 +49,7 @@ function init() {
   createMichelles()
 
   // Functions for movement of Aliens 
-  
+
   function removeMichelles() {
     michelleStart.forEach(alien =>
       cells[michellePosition + alien].classList.remove('michelle'))
@@ -92,6 +92,20 @@ function init() {
     }, 100)
   }
 
+  // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
+
+  function fireLaser() {
+    console.log('fire laser')
+  }
+
+  function createLaser() {
+    console.log('create laser')
+  }
+
+  function moveLaser() {
+    console.log('move laser ')
+  }
+
   // EXECUTIONS which handle event listeners
   function handleKeyUp(e) {
     cells[ruPosition].classList.remove('rupaul')
@@ -113,13 +127,13 @@ function init() {
     cells[ruPosition].classList.add('rupaul')
   } 
 
-  function playIntroMusic() {
-    audio.src = 'https://www.youtube.com/embed/aIG97MuVao8'
-    audio.play() 
-  }
+  // function playIntroMusic() {
+  //   audio.src = 'https://www.youtube.com/embed/aIG97MuVao8'
+  //   audio.play() 
+  // }
 
   function startGame() {
-    playIntroMusic()
+    // playIntroMusic()
     moveMichelle()
   }
 
