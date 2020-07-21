@@ -84,7 +84,7 @@ function init() {
         moveMichelleLeft()
       }
       numberOfMoves++
-      if (numberOfMoves === 4) {
+      if (numberOfMoves === 3) {
         numberOfMoves = 0
         michelleIsMovingRight = !michelleIsMovingRight
         moveMichelleDown()
@@ -111,7 +111,7 @@ function init() {
   }
 
   function shootingLaser() {
-    laserPosition = ruPosition - width
+    laserPosition = ruPosition 
     let moveLaserVertically = true
     let laserTimerID = null
     laserTimerID = setInterval(() => {
@@ -119,13 +119,12 @@ function init() {
         moveLaser()
       }
 
-      if (cells[laserPosition].classList.contains('michelle') || laserPosition < width) {
+      if (laserPosition === michellePosition || laserPosition < width) {
         clearInterval(laserTimerID)
+        cells[michellePosition].classList.remove('michelle')
         removeLaser()
-        removeMichelles()
         score += 1000
         scoreDisplay.innerHTML = score
-        cells[michellePosition + alien].classList.remove('michelle')
       }
     }, 300)
   }
