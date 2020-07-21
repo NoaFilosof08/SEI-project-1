@@ -103,8 +103,6 @@ function init() {
   }
 
   function moveLaser() {
-    console.log(ruPosition)
-    console.log(laserPosition - width)
     removeLaser()
     laserPosition = laserPosition - width 
     createLaser()
