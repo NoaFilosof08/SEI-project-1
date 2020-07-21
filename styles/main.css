@@ -25,7 +25,7 @@ body {
   color: white;
 }
 
-button {
+#start {
   font-family: 'Red Rose', cursive;
   font-size: 15px;
   font-size: bold;
@@ -77,6 +77,19 @@ button {
 
 .grid div.laser {
   background-image: url('../assets/laser.img1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#resetbtn {
+  font-family: 'Red Rose', cursive;
+  font-size: 15px;
+  font-size: bold;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  color: white;
+  background-image: url('../assets/mainstage.img1.jpeg');
   background-repeat: no-repeat;
   background-size: contain;
 }
