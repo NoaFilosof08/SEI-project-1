@@ -73,3 +73,9 @@ button {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.grid div.laser {
+  background-image: url('../assets/laser.img1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}

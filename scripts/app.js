@@ -22,6 +22,7 @@ function init() {
   let ruPosition = 217
   let michellePosition = width
   const michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
+  let laserPosition = ruPosition 
   let timerID = null
   let numberOfMoves = 0
 
@@ -93,23 +94,30 @@ function init() {
   }
 
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
-
-  function fireLaser() {
-    console.log('fire laser')
-  }
-
   function createLaser() {
-    console.log('create laser')
+    cells[laserPosition].classList.add('laser')
+    laserPosition = laserPosition + width 
   }
 
   function moveLaser() {
-    console.log('move laser ')
+    let moveLaserVertically = true
+    timerID = setInterval(() => {
+      if (moveLaserVertically) {
+        createLaser()
+      } 
+      if (laserPosition === michellePositon) {
+        cells[laserPosition].classList.add('laser')
+        cells[michellePosition + alien].classList.remove('michelle')
+        clearInterval()
+      }
+    })
   }
 
   // EXECUTIONS which handle event listeners
   function handleKeyUp(e) {
     cells[ruPosition].classList.remove('rupaul')
     const x = ruPosition % width
+    const y = 
     switch (e.keyCode) {
       case 39: 
         if (x < width - 1) {
@@ -121,6 +129,10 @@ function init() {
           ruPosition--
         }  
         break  
+      case 32: 
+        if (y > 0) {
+          moveLaser()
+        }
       default:
         break
     }
