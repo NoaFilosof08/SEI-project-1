@@ -20,7 +20,7 @@ function init() {
 
   // * GAME VARIABLES 
   let ruPosition = 217
-  let michellePosition = 0 
+  let michellePosition = width
   const michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   let laserPosition = ruPosition - width
   let timerID = null
@@ -103,23 +103,26 @@ function init() {
   }
 
   function moveLaser() {
+    console.log(ruPosition)
+    console.log(laserPosition - width)
     removeLaser()
     laserPosition = laserPosition - width 
     createLaser()
   }
 
   function shootingLaser() {
+    laserPosition = ruPosition - width
     let moveLaserVertically = true
     timerID = setInterval(() => {
       if (moveLaserVertically) {
-        console.log(moveLaser())
+        moveLaser()
       } 
       if (laserPosition === michellePositon) {
-        clearInterval()
-        cells[laserPosition].classList.remove('laser')
+        removeLaser()
         cells[michellePosition].classList.remove('michelle')
+        clearInterval(timerID)
       }
-    }, 200)
+    }, 300)
   }
 
   // EXECUTIONS which handle event listeners
@@ -149,7 +152,7 @@ function init() {
   } 
 
   // function playIntroMusic() {
-  //   audio.src = 'https://www.youtube.com/embed/aIG97MuVao8'
+  //   audio.src = ''
   //   audio.play() 
   // }
 
