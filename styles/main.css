@@ -81,12 +81,18 @@ body {
   background-size: contain;
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 #resetbtn {
   font-family: 'Red Rose', cursive;
   font-size: 15px;
   font-size: bold;
-  padding: 20px;
-  margin: 20px;
+  padding: 25px;
+  margin-bottom: 50px;
   border-radius: 5px;
   color: white;
   background-image: url('../assets/mainstage.img1.jpeg');
