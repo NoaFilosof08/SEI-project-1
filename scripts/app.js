@@ -91,8 +91,9 @@ function init() {
       } 
       if (michellePosition === 135) {
         clearInterval(timerID)
+        window.alert('game over! You Scored:', score)
       }
-    }, 500)
+    }, 200)
   }
 
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
