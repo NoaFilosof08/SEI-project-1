@@ -10,6 +10,14 @@ body {
   background-image: url('../assets/sparkle.img4.jpg');
 }
 
+/* #intro {
+  position: absolute;
+  z-index: 3;
+  width: 100vh;
+  height: 100vh;
+  background-color: pink;
+} */
+
 .title {
   color: white;
   text-align: center;
@@ -23,6 +31,8 @@ body {
   align-items: center;
   font-size: 15px;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 #start {
@@ -43,6 +53,8 @@ body {
   justify-content: center;
   color: white;
   margin: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .grid {
@@ -94,6 +106,8 @@ body {
   justify-content: center;
   height: 10vh;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
 #resetbtn {
