@@ -14,7 +14,7 @@ function init() {
   const audio = document.querySelector('#audio')
   const scoreDisplay = document.querySelector('#score-display')
   const introPageBtns = document.querySelectorAll('.startgame')
-  const introPage = document.querySelector('#intro')
+  const introPage = document.querySelector('.intro')
   const cells = []
 
   // * GRID VARIABLES
@@ -37,7 +37,9 @@ function init() {
   // Functions for beginning of game
   function removeIntroPage() {
     console.log('hello')
-    introPage.style.zIndex = '-1'
+    introPage.style.zIndex = '-99'
+    // introPage.classList.add('hide-page')
+    introPage.style.opacity = '0'
   }
 
   function createGrid() {
