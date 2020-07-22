@@ -117,11 +117,13 @@ function init() {
     const laserTimerID = setInterval(() => {
       if (moveLaserVertically) {
         moveLaser()
+      } else {
+        removeLaser()
       }
 
       if (cells[laserPosition].classList.contains('michelle')) {
         clearInterval(laserTimerID)
-        cells[michellePosition].classList.remove('michelle')
+        cells[laserPosition].classList.remove('michelle')
         removeLaser()
         score += 1000
         scoreDisplay.innerHTML = score
@@ -133,6 +135,7 @@ function init() {
   }
 
   // EXECUTIONS which handle event listeners
+  
   function handleKeyDown(e) {
     let keyDown = e.keyCode 
     if (keyDown === 32) {
@@ -158,14 +161,12 @@ function init() {
       case 32: 
         if (y > 0) {
           shootingLaser()
-          e.preventDefault()
         }
       default:
         break
     }
     cells[ruPosition].classList.add('rupaul')
   } 
-
 
   // function playIntroMusic() {
   //   audio.src = ''
@@ -178,9 +179,10 @@ function init() {
   }
 
   // * EVENT LISTENERS
+  start.addEventListener('click', startGame)
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
-  start.addEventListener('click', startGame)
+  
 }
 
 window.addEventListener('DOMContentLoaded', init)
