@@ -37,9 +37,9 @@ function init() {
   // Functions for beginning of game
   function removeIntroPage() {
     console.log('hello')
-
-
+    introPage.style.zIndex = '-1'
   }
+
   function createGrid() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')

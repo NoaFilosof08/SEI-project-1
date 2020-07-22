@@ -10,7 +10,7 @@ body {
   background-image: url('../assets/sparkle.img4.jpg');
 }
 
-#intro .hide-page{
+#intro .hide-content{
   position: absolute;
   z-index: 3;
   width: 100vh;
