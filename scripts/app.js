@@ -130,7 +130,7 @@ function init() {
         clearInterval(timerID)
         window.alert('game over! You Scored:', score)
       }
-    }, 500)
+    }, 300)
   }
 
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 

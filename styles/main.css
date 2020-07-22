@@ -54,6 +54,7 @@ body {
   height: 600px;
   width: 600px;
   border: 0.5px dashed rgb(171, 171, 171);
+
 }
 
 .grid div {
@@ -66,6 +67,7 @@ body {
   background-image: url('../assets/rupaul.img2.jpeg');
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 10px;
 }
 
 .grid div.michelle {
@@ -76,9 +78,9 @@ body {
 }
 
 .grid div.laser {
-  background-image: url('../assets/laser.img1.png');
+  background-image: url('../assets/lipstick.img4.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain; 
 }
 
 .grid div.michelle-laser {
