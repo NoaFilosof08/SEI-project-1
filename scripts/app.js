@@ -134,6 +134,23 @@ function init() {
     }, 300)
   }
 
+  // write a function for the michelles to randomly shoot at the player 
+  function createMichelleLaser() {
+   console.log() 
+  }
+
+  function removeMichelleLaser() {
+    console.log()
+  }
+
+  function moveMichelleLaser() {
+    console.log()
+  }
+
+  function shootingMichelleLaser() {
+    console.log()
+  }
+
   // EXECUTIONS which handle event listeners
   
   function handleKeyDown(e) {
