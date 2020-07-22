@@ -13,6 +13,8 @@ function init() {
   const start = document.querySelector('#start')
   const audio = document.querySelector('#audio')
   const scoreDisplay = document.querySelector('#score-display')
+  const introPageBtns = document.querySelectorAll('.startgame')
+  const introPage = document.querySelector('#intro')
   const cells = []
 
   // * GRID VARIABLES
@@ -33,6 +35,11 @@ function init() {
 
   // * FUNCTIONS 
   // Functions for beginning of game
+  function removeIntroPage() {
+    console.log('hello')
+
+
+  }
   function createGrid() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
@@ -231,15 +238,18 @@ function init() {
   //   audio.play() 
   // }
 
-  function startGame() {
+  function beginGame() {
     // playIntroMusic()
     moveMichelle()
   }
 
   // * EVENT LISTENERS
-  start.addEventListener('click', startGame)
+  start.addEventListener('click', beginGame)
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
+  introPageBtns.forEach(btn => {
+    btn.addEventListener('click', removeIntroPage)
+  })
   
 }
 

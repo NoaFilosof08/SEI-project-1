@@ -10,13 +10,13 @@ body {
   background-image: url('../assets/sparkle.img4.jpg');
 }
 
-/* #intro {
+#intro .hide-page{
   position: absolute;
   z-index: 3;
   width: 100vh;
   height: 100vh;
   background-color: pink;
-} */
+}
 
 .title {
   color: white;
