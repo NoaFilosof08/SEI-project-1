@@ -28,8 +28,7 @@ ul {
 }
 
 .startgame {
-  display: flex;
-  flex-direction: row;
+  display: inline;
   font-family: 'Red Rose', cursive;
   font-size: 15px;
   font-size: bold;
