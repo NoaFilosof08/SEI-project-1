@@ -134,6 +134,13 @@ function init() {
   }
 
   // EXECUTIONS which handle event listeners
+  function handleKeyDown(e) {
+    const keyDown = e.keyCode 
+    if (keyDown) {
+      e.preventDefault()
+    }
+  }
+
   function handleKeyUp(e) {
     cells[ruPosition].classList.remove('rupaul')
     const x = ruPosition % width
@@ -152,12 +159,14 @@ function init() {
       case 32: 
         if (y > 0) {
           shootingLaser()
+          e.preventDefault()
         }
       default:
         break
     }
     cells[ruPosition].classList.add('rupaul')
   } 
+
 
   // function playIntroMusic() {
   //   audio.src = ''
@@ -171,6 +180,7 @@ function init() {
 
   // * EVENT LISTENERS
   document.addEventListener('keyup', handleKeyUp)
+  document.addEventListener('keydown', handleKeyDown)
   start.addEventListener('click', startGame)
 }
 
