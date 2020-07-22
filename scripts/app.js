@@ -185,9 +185,11 @@ function init() {
       }
 
       if (michelleStart.length === 0) {
-        console.log('youve won')
-        // cells[laserPosition]
-        // clearInterval(timerID)
+        cells[laserPosition].classList.remove('michelle')
+        removeLaser()
+        cells[ruPosition].classList.remove('rupaul')
+        clearInterval(timerID)
+        window.alert('you have won!')
       }
     }, 50)
   }
