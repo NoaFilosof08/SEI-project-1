@@ -27,6 +27,24 @@ ul {
   list-style-type: none;
 }
 
+.startgame {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Red Rose', cursive;
+  font-size: 15px;
+  font-size: bold;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  color: white;
+  background: rgb(100, 209, 255);
+}
+
+.hello-img {
+  width: 300px;
+  height: 168px;
+}
+
 .title {
   color: white;
   text-align: center;
@@ -96,6 +114,7 @@ ul {
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 20px;
+  opacity: 1;
 }
 
 .grid div.laser {
@@ -103,6 +122,16 @@ ul {
   background-repeat: no-repeat;
   background-size: contain; 
 }
+
+.grid div.explosion {
+  background-image: url('../assets/ruexplode.img1.webp');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  position: relative;
+  opacity: 1;
+  transition: opacity 1.5s ease-out;
+}
+
 
 .grid div.michelle-laser {
   background-image: url('../assets/laser.img2.png');
