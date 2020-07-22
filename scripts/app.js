@@ -21,10 +21,10 @@ function init() {
 
   // * GAME VARIABLES 
   let ruPosition = 217
-  let michellePosition = width
-  const michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
+  let michellePosition = 0
+  let michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   let laserPosition = ruPosition - width
-  let michelleLaserPosition = michellePosition + width
+  // let michelleLaserPosition = michellePosition + (width * 3)
   let timerID = null
   let numberOfMoves = 0
   let score = 0
@@ -35,7 +35,7 @@ function init() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
-      // cell.innerHTML = i
+      cell.innerHTML = i
       grid.appendChild(cell)
     }
   }
@@ -75,15 +75,51 @@ function init() {
     michellePosition += width
     createMichelles()
   }
+
+  // write a function for the michelles to randomly shoot at the player 
+  // function createMichelleLaser() {
+  //   cells[michelleLaserPosition].classList.add('michelle-laser')
+  // }
+
+  // function removeMichelleLaser() {
+  //   cells[michelleLaserPosition].classList.remove('michelle-laser')
+  // }
+
+  // function moveMichelleLaser() {
+  //   removeMichelleLaser()
+  //   michelleLaserPosition = michelleLaserPosition + width 
+  //   createMichelleLaser()
+  // }
+
+  // function shootingMichelleLaser() {
+  //   michelleLaserPosition = michellePosition + width 
+  //   let michelleWillShoot = true
+  //   const michelleLaserTimerID = setInterval(() => {
+  //     if (michelleWillShoot) {
+  //       moveMichelleLaser()
+  //     } else {
+  //       clearInterval(michelleLaserTimerID)
+  //     }
+  //     michelleLaserPosition = Math.floor(Math.random() * michelleStart)
+  //     moveMichelleLaser()
+  //     if (cells[michelleLaserPosition].classList.contains('rupaul')) {
+  //       clearInterval(michelleLaserTimerID)
+  //       cells[ruPosition].classList.remove('rupaul')
+  //     }
+  //   }, 300)
+  // }
+
 // need to debug to say that when michelle position reaches 300 it will clear interval 
   function moveMichelle() {
     let michelleIsMovingRight = true
     timerID = setInterval(() => {
+      
       if (michelleIsMovingRight) {
         moveMichelleRight()
       } else {
         moveMichelleLeft()
       }
+      shootingMichelleLaser()
       numberOfMoves++
       if (numberOfMoves === 3) {
         numberOfMoves = 0
@@ -112,7 +148,14 @@ function init() {
     createLaser()
   }
 
+  let laserAvail = true 
+
+
   function shootingLaser() {
+    if (!laserAvail) {
+      return 
+    }
+    laserAvail = false
     laserPosition = ruPosition - width
     let moveLaserVertically = true
     const laserTimerID = setInterval(() => {
@@ -125,42 +168,20 @@ function init() {
 
       if (cells[laserPosition].classList.contains('michelle')) {
         clearInterval(laserTimerID)
+        laserAvail = true
         cells[laserPosition].classList.remove('michelle')
+        michelleStart = michelleStart.filter(m => {
+          return m !== (laserPosition - michellePosition)
+        })
         removeLaser()
         score += 1000
         scoreDisplay.innerHTML = score
       } else if (laserPosition < width) {
         clearInterval(laserTimerID)
+        laserAvail = true 
         removeLaser()
       }
-    }, 300)
-  }
-
-  // write a function for the michelles to randomly shoot at the player 
-  function createMichelleLaser() {
-    cells[MichelleLaserPosition].classList.add('michelle-laser')
-  }
-
-  function removeMichelleLaser() {
-    cells[MichelleLaserPosition].classList.remove('michelle-laser')
-  }
-
-  function moveMichelleLaser() {
-    removeMichelleLaser()
-    michelleLaserPosition = michelleLaserPosition + width 
-    createMichelleLaser()
-  }
-
-  function shootingMichelleLaser() {
-    let michelleWillShoot = true
-    const michelleLaserTimerID = setInterval(() => {
-      removeMichelleLaser()
-      if (michelleWillShoot) {
-        moveMichelleLaser()
-      }
-      MichelleLaserPosition = Math.floor(math.random() * michelleStart)
-      moveMichelleLeft()
-    })
+    }, 50)
   }
 
   // EXECUTIONS which handle event listeners
