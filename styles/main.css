@@ -122,14 +122,14 @@ ul {
   background-size: contain; 
 }
 
-.grid div.explosion {
+/* .grid div.explosion {
   background-image: url('../assets/ruexplode.img1.webp');
   background-repeat: no-repeat;
   background-size: contain; 
   position: relative;
   opacity: 1;
   transition: opacity 1.5s ease-out;
-}
+} */
 
 
 .grid div.michelle-laser {

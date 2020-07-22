@@ -175,14 +175,9 @@ function init() {
       }
 
       if (cells[laserPosition].classList.contains('michelle')) {
-        console.log(michelleStart.length)
         clearInterval(laserTimerID)
         laserAvail = true
-        // cells[laserPosition].classList.add('explosion')
-        // const timeOutExplostion = setTimeout(() => {
-        //   cells[laserPosition].classList.remove('michelle')
-        // }, 100)
-        timeOutExplostion()
+        cells[laserPosition].classList.remove('michelle')
         michelleStart = michelleStart.filter(m => {
           return m !== (laserPosition - michellePosition)
         })
