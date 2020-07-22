@@ -83,8 +83,8 @@ body {
 
 .button-wrapper {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #resetbtn {
@@ -92,7 +92,7 @@ body {
   font-size: 15px;
   font-size: bold;
   padding: 25px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   border-radius: 5px;
   color: white;
   background-image: url('../assets/mainstage.img1.jpeg');

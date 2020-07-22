@@ -135,8 +135,8 @@ function init() {
 
   // EXECUTIONS which handle event listeners
   function handleKeyDown(e) {
-    const keyDown = e.keyCode 
-    if (keyDown) {
+    let keyDown = e.keyCode 
+    if (keyDown === 32) {
       e.preventDefault()
     }
   }
