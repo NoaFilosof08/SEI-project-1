@@ -107,12 +107,12 @@ function init() {
 
   function moveLaser() {
     removeLaser()
-    laserPosition = laserPosition - width 
+    laserPosition = laserPosition - width
     createLaser()
   }
 
   function shootingLaser() {
-    laserPosition = ruPosition 
+    laserPosition = ruPosition - width
     let moveLaserVertically = true
     const laserTimerID = setInterval(() => {
       if (moveLaserVertically) {
