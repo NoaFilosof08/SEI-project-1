@@ -22,7 +22,8 @@ function init() {
   // * GAME VARIABLES 
   let ruPosition = 202
   let michellePosition = 0
-  let michelleStart = [15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
+  let michelleStart = [15, 16, 17]
+    // 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
   let laserPosition = ruPosition - width
   // let michelleLaserPosition = michellePosition + (width * 3)
   let timerID = null
@@ -130,7 +131,7 @@ function init() {
         clearInterval(timerID)
         window.alert('game over! You Scored:', score)
       }
-    }, 300)
+    }, 1000)
   }
 
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
@@ -167,6 +168,7 @@ function init() {
       }
 
       if (cells[laserPosition].classList.contains('michelle')) {
+        console.log(michelleStart.length)
         clearInterval(laserTimerID)
         laserAvail = true
         cells[laserPosition].classList.remove('michelle')
@@ -180,6 +182,12 @@ function init() {
         clearInterval(laserTimerID)
         laserAvail = true 
         removeLaser()
+      }
+
+      if (michelleStart.length === 0) {
+        console.log('youve won')
+        // cells[laserPosition]
+        // clearInterval(timerID)
       }
     }, 50)
   }
