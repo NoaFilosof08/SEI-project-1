@@ -24,6 +24,7 @@ function init() {
   let michellePosition = width
   const michelleStart = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32,33, 34, 35 ,36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]
   let laserPosition = ruPosition - width
+  let michelleLaserPosition = michellePosition + width
   let timerID = null
   let numberOfMoves = 0
   let score = 0
@@ -136,15 +137,17 @@ function init() {
 
   // write a function for the michelles to randomly shoot at the player 
   function createMichelleLaser() {
-   console.log() 
+    cells[MichelleLaserPosition].classList.add('michelle-laser')
   }
 
   function removeMichelleLaser() {
-    console.log()
+    cells[MichelleLaserPosition].classList.remove('michelle-laser')
   }
 
   function moveMichelleLaser() {
-    console.log()
+    removeMichelleLaser()
+    michelleLaserPosition = michelleLaserPosition + width 
+    createMichelleLaser()
   }
 
   function shootingMichelleLaser() {
