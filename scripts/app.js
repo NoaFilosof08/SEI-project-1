@@ -120,7 +120,7 @@ function init() {
       } else {
         moveMichelleLeft()
       }
-      shootingMichelleLaser()
+      // shootingMichelleLaser()
       numberOfMoves++
       if (numberOfMoves === 3) {
         numberOfMoves = 0
