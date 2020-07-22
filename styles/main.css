@@ -81,6 +81,12 @@ body {
   background-size: contain;
 }
 
+.grid div.michelle-laser {
+  background-image: url('../assets/laser.img2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: center;
