@@ -116,6 +116,7 @@ function init() {
     laserPosition = ruPosition - width
     let moveLaserVertically = true
     const laserTimerID = setInterval(() => {
+      removeLaser()
       if (moveLaserVertically) {
         moveLaser()
       } else {
@@ -151,7 +152,15 @@ function init() {
   }
 
   function shootingMichelleLaser() {
-    console.log()
+    let michelleWillShoot = true
+    const michelleLaserTimerID = setInterval(() => {
+      removeMichelleLaser()
+      if (michelleWillShoot) {
+        moveMichelleLaser()
+      }
+      MichelleLaserPosition = Math.floor(math.random() * michelleStart)
+      moveMichelleLeft()
+    })
   }
 
   // EXECUTIONS which handle event listeners
