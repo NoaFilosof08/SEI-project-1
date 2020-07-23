@@ -87,6 +87,8 @@ function init() {
   }
   createMichelles()
 
+  //write a function which counts down the time left in the game
+
   // Functions for movement of Aliens 
 
   function removeMichelles() {
