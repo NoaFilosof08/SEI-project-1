@@ -12,6 +12,7 @@ function init() {
   const grid = document.querySelector('.grid')
   const start = document.querySelectorAll('.startgame')
   const audio = document.querySelector('#audio')
+  const audio2 = document.querySelector('#audio2')
   const scoreDisplay = document.querySelector('#score-display')
   const introPageBtns = document.querySelectorAll('.startgame')
   const introPage = document.querySelector('.intro')
@@ -47,6 +48,8 @@ function init() {
     // outroLostPage.style.zIndex = '99'
     outroLostPage.style.opacity = '1'
     finalScore.innerHTML = score
+    audio2.src = 'assets/sashayaway2 (1).m4a'
+    audio2.play()
   }
 
   function createGrid() {
