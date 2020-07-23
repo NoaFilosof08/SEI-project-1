@@ -212,7 +212,7 @@ function moveMichelle() {
   function removeExplosion() {
     const remove = setTimeout(() => {
      cells[laserPosition].classList.remove('explosion')
-    }, 600);
+    }, 100);
   } 
 
   function shootingLaser() {
