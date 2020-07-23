@@ -13,6 +13,8 @@ function init() {
   const start = document.querySelectorAll('.startgame')
   const audio = document.querySelector('#audio')
   const audio2 = document.querySelector('#audio2')
+  const mainGameAudio = document.querySelector('#main-game-audio')
+  const winAudio = document.querySelector('#condragulations-audio')
   const scoreDisplay = document.querySelector('#score-display')
   const introPageBtns = document.querySelectorAll('.startgame')
   const introPage = document.querySelector('.intro')
@@ -48,15 +50,15 @@ function init() {
   function addOutroLostPage() {
     outroLostPage.style.opacity = '1'
     finalScore.innerHTML = score
-    // audio2.src = 'assets/sashayaway2 (1).m4a'
-    // audio2.play()
+    audio2.src = 'assets/sashayaway2 (1).m4a'
+    audio2.play()
   }
 
   function addOutroWonPage() {
     outroWonPage.style.opacity = '1'
     finalScore.innerHTML = score
-    // audio2.src = 'assets/sashayaway2 (1).m4a'
-    // audio2.play()
+    winAudio.src = 'assets/condragulations.m4a'
+    winAudio.play()
   }
 
   function restartGameBtn() {
@@ -143,6 +145,8 @@ function init() {
 
 // need to debug to say that when michelle position reaches 300 it will clear interval 
 function moveMichelle() {
+  mainGameAudio.src = 'assets/maingame.m4a'
+  mainGameAudio.play()
     let michelleIsMovingRight = true
     timerID = setInterval(() => {
       
@@ -160,9 +164,10 @@ function moveMichelle() {
       } 
       if (michellePosition === 105) {
         clearInterval(timerID)
+        mainGameAudio.pause()
         addOutroLostPage()
       }
-    }, 500)
+    }, 1000)
   }
 
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
@@ -215,6 +220,7 @@ function moveMichelle() {
         cells[laserPosition].classList.remove('michelle')
         removeLaser()
         cells[ruPosition].classList.remove('rupaul')
+        mainGameAudio.pause()
         clearInterval(timerID)
         addOutroWonPage()
         // window.alert('you have won!')
@@ -257,15 +263,15 @@ function moveMichelle() {
   } 
 
   function playIntroMusic() {
-    // audio.src = 'assets/rupaul start your engines.1.m4a'
-    // audio.play() 
+    audio.src = 'assets/rupaul start your engines.1.m4a'
+    audio.play() 
   }
 
   function beginGame() {
     playIntroMusic()
     const delayMichelle = setTimeout(() => {
       moveMichelle()
-    }, 1000)
+    }, 4000)
   }
 
   // * EVENT LISTENERS
@@ -277,7 +283,7 @@ function moveMichelle() {
   introPageBtns.forEach(btn => {
     btn.addEventListener('click', removeIntroPage)
   })
-  restart.addEventListener('click', restartGameBtn)
+  // restart.addEventListener('click', restartGameBtn)
 }
 
 window.addEventListener('DOMContentLoaded', init)
