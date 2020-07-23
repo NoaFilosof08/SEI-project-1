@@ -10,7 +10,7 @@
 function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
-  const start = document.querySelector('#start')
+  const start = document.querySelector('.startgame')
   const audio = document.querySelector('#audio')
   const scoreDisplay = document.querySelector('#score-display')
   const introPageBtns = document.querySelectorAll('.startgame')
@@ -234,13 +234,13 @@ function init() {
     cells[ruPosition].classList.add('rupaul')
   } 
 
-  // function playIntroMusic() {
-  //   audio.src = ''
-  //   audio.play() 
-  // }
+  function playIntroMusic() {
+    audio.src = 'assets/rupaul start your engines.1.m4a'
+    audio.play() 
+  }
 
   function beginGame() {
-    // playIntroMusic()
+    playIntroMusic()
     moveMichelle()
   }
 
