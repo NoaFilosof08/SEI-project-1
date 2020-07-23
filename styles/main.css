@@ -126,25 +126,29 @@ li {
   justify-content: center;
   height: 600px;
   width: 600px;
-  border: 0.5px dashed rgb(171, 171, 171);
-  background-color: rgb(31, 24, 28, 0.8);
+  border: 1px solid rgba(187, 7, 178, 0.582);
+  border-radius: 5px;
+  background-color: rgba(247, 8, 235, 0.112);
+  text-align: center;
 }
 
 .grid div {
   flex-grow: 1;
   height: 6.6%;
   width: 6.6%;
+  border-radius: none;
+  border-color: black;
 }
 
 .grid div.rupaul {
-  background-image: url('../assets/rupaul.img2.jpeg');
+  background-image: url('../assets/rupaul.img3.jpg');
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .grid div.michelle {
-  background-image: url('../assets/michelle.img1.jpeg');
+  background-image: url('../assets/michelle.img3.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 20px;

@@ -67,7 +67,7 @@ function init() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
-      cell.innerHTML = i
+      // cell.innerHTML = '🖤'
       grid.appendChild(cell)
     }
   }
