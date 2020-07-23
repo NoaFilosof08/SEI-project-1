@@ -4,8 +4,8 @@ function init() {
   const grid = document.querySelector('.grid')
   const start = document.querySelectorAll('.startgame')
   // const countdown = document.querySelector('#countdown')
-  const audio = document.querySelector('#audio')
-  const audio2 = document.querySelector('#audio2')
+  const startAudio = document.querySelector('#audio')
+  const looseAudio = document.querySelector('#audio2')
   const mainGameAudio = document.querySelector('#main-game-audio')
   const winAudio = document.querySelector('#condragulations-audio')
   const scoreDisplay = document.querySelector('#score-display')
@@ -51,8 +51,8 @@ function init() {
     outroLostPage.style.opacity = '1'
     finalScore.innerHTML = score
     const delayLoose = setTimeout(() => {
-      audio2.src = 'assets/sashayaway2 (1).m4a'
-      audio2.play()
+      looseAudio.src = 'assets/sashayaway2 (1).m4a'
+      looseAudio.play()
     }, 500);
   }
 
@@ -263,8 +263,8 @@ function moveMichelle() {
   } 
 
   function playIntroMusic() {
-    audio.src = 'assets/rupaul start your engines.1.m4a'
-    audio.play() 
+    startAudio.src = 'assets/rupaul start your engines.1.m4a'
+    startAudio.play() 
   }
 
   function beginGame() {
