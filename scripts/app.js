@@ -24,8 +24,7 @@ function init() {
   // * GAME VARIABLES 
   let ruPosition = 202
   let michellePosition = width
-  let michelleStart = [15, 16]
-    // , 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
+  let michelleStart = [15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
   let laserPosition = ruPosition - width
   // let michelleLaserPosition = michellePosition + (width * 3)
   let laserAvail = true
@@ -71,6 +70,7 @@ function init() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
+      cell.innerHTML = i
       grid.appendChild(cell)
     }
   }
@@ -145,10 +145,8 @@ function init() {
   // }
 
 function moveMichelle() {
-  const delayMainMusic = setTimeout(() => {
     mainGameAudio.src = 'assets/maingame.m4a'
     mainGameAudio.play()
-  }, 4500)
     let michelleIsMovingRight = true
     timerID = setInterval(() => {
       
@@ -170,6 +168,12 @@ function moveMichelle() {
         addOutroLostPage()
       }
     }, 1500)
+  }
+
+  function delayMoveMichelle() {
+    const delayMichelle = setTimeout(() => {
+      moveMichelle()
+    }, 4500);
   }
 
   // Laser Shooting Function 
@@ -278,7 +282,7 @@ function moveMichelle() {
 
   function beginGame() {
     playIntroMusic()
-    moveMichelle()
+    delayMoveMichelle()
     
   }
 
