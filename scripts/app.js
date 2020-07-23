@@ -34,31 +34,17 @@ function init() {
   let countdownTimerID = null 
   let count = 5
 
-  // * FUNCTIONS 
-  // Functions for beginning of game
-  // function countdownTimer() {
-  //   countdownTimerID = setInterval(() => {
-  //   countdown.style.opacity = '1'
-  //     count --
-  //     if (count <= 0) {
-  //       clearInterval(countdownTimerID)
-  //     } else {
-  //       count.innerHTML = count
-  //     }
-  //   }, 1000);
-  //   introPage.style.opacity = '0'
-  // }
+  // * FUNCTIONS
 
-  function handleReset() {
-    location.reload()
-  }
+  // function handleReset() {
+  //   location.reload()
+  // }
 
   function removeIntroPage() {
     const delayMichelle = setTimeout(() => {
       introPage.style.zIndex = '-99'
       introPage.style.opacity = '0'
     }, 4000)
-    // countdownTimer()
   }
 
   function addOutroLostPage() {
