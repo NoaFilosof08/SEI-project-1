@@ -161,8 +161,7 @@ function init() {
   //     }
   //   }, 300)
   // }
-
-// need to debug to say that when michelle position reaches 300 it will clear interval 
+   
 function moveMichelle() {
   const delayMainMusic = setTimeout(() => {
     mainGameAudio.src = 'assets/maingame.m4a'
@@ -244,7 +243,6 @@ function moveMichelle() {
         mainGameAudio.pause()
         clearInterval(timerID)
         addOutroWonPage()
-        // window.alert('you have won!')
       }
     }, 50)
   }
@@ -303,8 +301,7 @@ function moveMichelle() {
   introPageBtns.forEach(btn => {
     btn.addEventListener('click', removeIntroPage)
   })
-  restart.addEventListener('click', handleReset)
-  // restart.addEventListener('click', restartGameBtn)
+  // restart.addEventListener('click', handleReset)
 }
 
 window.addEventListener('DOMContentLoaded', init)
