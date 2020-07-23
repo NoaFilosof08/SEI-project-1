@@ -46,6 +46,7 @@ function init() {
     console.log('hi')
     // outroLostPage.style.zIndex = '99'
     outroLostPage.style.opacity = '1'
+    finalScore.innerHTML = score
   }
 
   function createGrid() {
