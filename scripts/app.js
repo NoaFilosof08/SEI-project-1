@@ -15,7 +15,7 @@ function init() {
   const outroWonPage = document.querySelector('#outro-won')
   const finalScore = document.querySelector('.final-score')
   const timeLeft = document.querySelector('#time-left')
-  // const restart = document.querySelector('.reset')
+  const restart = document.querySelectorAll('.reset')
   const cells = []
 
   // * GRID VARIABLES
@@ -37,9 +37,10 @@ function init() {
 
   // * FUNCTIONS
 
-  // function handleReset() {
-  //   location.reload()
-  // }
+  function handleReset() {
+    location.reload()
+    console.log('clicked')
+  }
 
   function removeIntroPage() {
     const delayMichelle = setTimeout(() => {
@@ -311,6 +312,9 @@ function moveMichelle() {
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
   introPageBtn.addEventListener('click', removeIntroPage)
+  restart.forEach(btn => {
+    btn.addEventListener('click', handleReset)
+  })
 
   // restart.addEventListener('click', handleReset)
 }
