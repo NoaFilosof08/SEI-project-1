@@ -19,7 +19,7 @@ function init() {
   const outroLostPage = document.querySelector('#outro-lost')
   const outroWonPage = document.querySelector('#outro-won')
   const finalScore = document.querySelector('.final-score')
-  const restart = document.querySelector('.play-againbtn')
+  const restart = document.querySelector('#outro-lost .play-againbtn')
   const cells = []
 
   // * GRID VARIABLES
@@ -60,7 +60,7 @@ function init() {
   }
 
   function restartGameBtn() {
-    location.reload()
+    console.log('reload pls')
   }
 
   function createGrid() {
