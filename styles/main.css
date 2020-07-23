@@ -57,7 +57,7 @@ h4 {
 
 h5 {
   font-size: 12px;
-  margin: 0px 20px;
+  margin: 0px 40px;
 }
 
 ul {
@@ -215,6 +215,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   opacity: 0;
 }
 
