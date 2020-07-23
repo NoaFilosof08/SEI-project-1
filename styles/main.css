@@ -113,7 +113,7 @@ ul {
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 20px;
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 .grid div.laser {
@@ -147,16 +147,18 @@ ul {
   z-index: 1;
 }
 
-.outro-lost {
+#outro-lost {
   position: fixed;
   z-index: 99;
-  width: 100%;
-  height: 100%;
+  top: 19%;
+  left: 25%;
+  width: 600px;
+  height: 300px;
+  background-color: pink;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: pink;
   opacity: 0;
 }
 

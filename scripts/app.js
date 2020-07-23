@@ -15,6 +15,8 @@ function init() {
   const scoreDisplay = document.querySelector('#score-display')
   const introPageBtns = document.querySelectorAll('.startgame')
   const introPage = document.querySelector('.intro')
+  const outroLostPage = document.querySelector('#outro-lost')
+  const finalScore = document.querySelector('#final-score')
   const cells = []
 
   // * GRID VARIABLES
@@ -23,9 +25,8 @@ function init() {
 
   // * GAME VARIABLES 
   let ruPosition = 202
-  let michellePosition = 0
-  let michelleStart = [15, 16, 17]
-    // 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
+  let michellePosition = width
+  let michelleStart = [15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
   let laserPosition = ruPosition - width
   // let michelleLaserPosition = michellePosition + (width * 3)
   let laserAvail = true
@@ -36,10 +37,15 @@ function init() {
   // * FUNCTIONS 
   // Functions for beginning of game
   function removeIntroPage() {
-    console.log('hello')
     introPage.style.zIndex = '-99'
     // introPage.classList.add('hide-page')
     introPage.style.opacity = '0'
+  }
+
+  function addOutroLostPage() {
+    console.log('hi')
+    // outroLostPage.style.zIndex = '99'
+    outroLostPage.style.opacity = '1'
   }
 
   function createGrid() {
@@ -137,11 +143,13 @@ function moveMichelle() {
         michelleIsMovingRight = !michelleIsMovingRight
         moveMichelleDown()
       } 
-      if (michellePosition === 135) {
+      if (michellePosition === 105) {
+        addOutroLostPage()
         clearInterval(timerID)
-        window.alert('game over! You Scored:', score)
+        // window.alert('game over! You Scored:', score)
+        
       }
-    }, 1000)
+    }, 200)
   }
 
   // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
@@ -243,7 +251,7 @@ function moveMichelle() {
     playIntroMusic()
     const delayMichelle = setTimeout(() => {
       moveMichelle()
-    }, 4000)
+    }, 1000)
   }
 
   // * EVENT LISTENERS
