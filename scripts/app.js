@@ -1,16 +1,9 @@
-// CREATE AN OUTLINE  - this will encompass all the different needs of the JS: 
-  // DOM elements: what is to be caputered from HTML
-  // GIRD variables: what will reference the grid: declare these so that they can be changed further down the line if needed
-  // GAME variables: moving elements on the screen e.g. aliens will be declared here
-  // Functions: both event functions and logic functions here; first one to create will be the button click (to start the game) and creation of the grid 
-    // button click: this will set off a timer and 'start' the game (start game function first will work on timer later)
-    // create grid: use the grid variables to create a for loop which will append the grid to the child (cells) and also push into an array - this will also greate an element called 'div' which will be styled in css for sizing
-  // EVENT listeners - make most of these later - but these will listen out for start button, and key movements on keyboard (space, left/right arrows)
 
 function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
   const start = document.querySelectorAll('.startgame')
+  const countdown = document.querySelector('#countdown')
   const audio = document.querySelector('#audio')
   const audio2 = document.querySelector('#audio2')
   const mainGameAudio = document.querySelector('#main-game-audio')
@@ -21,7 +14,7 @@ function init() {
   const outroLostPage = document.querySelector('#outro-lost')
   const outroWonPage = document.querySelector('#outro-won')
   const finalScore = document.querySelector('.final-score')
-  const restart = document.querySelector('#outro-lost .play-againbtn')
+  const restart = document.querySelector('.reset')
   const cells = []
 
   // * GRID VARIABLES
@@ -38,31 +31,58 @@ function init() {
   let timerID = null
   let numberOfMoves = 0
   let score = 0
+  let countdownTimerID = null 
+  let count = 5
 
   // * FUNCTIONS 
   // Functions for beginning of game
+  // function countdownTimer() {
+  //   countdownTimerID = setInterval(() => {
+  //   countdown.style.opacity = '1'
+  //     count --
+  //     if (count <= 0) {
+  //       clearInterval(countdownTimerID)
+  //     } else {
+  //       count.innerHTML = count
+  //     }
+  //   }, 1000);
+  //   introPage.style.opacity = '0'
+  // }
+
+  function handleReset() {
+    location.reload()
+  }
+
   function removeIntroPage() {
-    introPage.style.zIndex = '-99'
-    introPage.style.opacity = '0'
+    const delayMichelle = setTimeout(() => {
+      introPage.style.zIndex = '-99'
+      introPage.style.opacity = '0'
+    }, 4000)
+    // countdownTimer()
   }
 
   function addOutroLostPage() {
     outroLostPage.style.opacity = '1'
     finalScore.innerHTML = score
-    audio2.src = 'assets/sashayaway2 (1).m4a'
-    audio2.play()
+    const delayLoose = setTimeout(() => {
+      audio2.src = 'assets/sashayaway2 (1).m4a'
+      audio2.play()
+    }, 500);
   }
 
   function addOutroWonPage() {
     outroWonPage.style.opacity = '1'
     finalScore.innerHTML = score
-    winAudio.src = 'assets/condragulations.m4a'
+    const delayWin = setTimeout(() => {
+      winAudio.src = 'assets/condragulations.m4a'
     winAudio.play()
+    }, 500);
+  
   }
 
-  function restartGameBtn() {
-    console.log('reload pls')
-  }
+  // function restartGameBtn() {
+  //   console.log('reload pls')
+  // }
 
   function createGrid() {
     for (let i = 0; i < numOfCells; i++) {
@@ -144,8 +164,10 @@ function init() {
 
 // need to debug to say that when michelle position reaches 300 it will clear interval 
 function moveMichelle() {
-  mainGameAudio.src = 'assets/maingame.m4a'
-  mainGameAudio.play()
+  const delayMainMusic = setTimeout(() => {
+    mainGameAudio.src = 'assets/maingame.m4a'
+    mainGameAudio.play()
+  }, 4500)
     let michelleIsMovingRight = true
     timerID = setInterval(() => {
       
@@ -169,7 +191,7 @@ function moveMichelle() {
     }, 1500)
   }
 
-  // function to shoot laser from ru image. Start by creating 3 functions which are a) laser being fired, b) laser being created and c) laser being moved 
+  // Laser Shooting Function 
   function createLaser() {
     cells[laserPosition].classList.add('laser')
   }
@@ -268,9 +290,8 @@ function moveMichelle() {
 
   function beginGame() {
     playIntroMusic()
-    const delayMichelle = setTimeout(() => {
-      moveMichelle()
-    }, 4000)
+    moveMichelle()
+    
   }
 
   // * EVENT LISTENERS
@@ -282,6 +303,7 @@ function moveMichelle() {
   introPageBtns.forEach(btn => {
     btn.addEventListener('click', removeIntroPage)
   })
+  restart.addEventListener('click', handleReset)
   // restart.addEventListener('click', restartGameBtn)
 }
 
