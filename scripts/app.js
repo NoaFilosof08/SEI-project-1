@@ -3,7 +3,7 @@ function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
   const start = document.querySelectorAll('.startgame')
-  const countdown = document.querySelector('#countdown')
+  // const countdown = document.querySelector('#countdown')
   const audio = document.querySelector('#audio')
   const audio2 = document.querySelector('#audio2')
   const mainGameAudio = document.querySelector('#main-game-audio')
@@ -14,7 +14,7 @@ function init() {
   const outroLostPage = document.querySelector('#outro-lost')
   const outroWonPage = document.querySelector('#outro-won')
   const finalScore = document.querySelector('.final-score')
-  const restart = document.querySelector('.reset')
+  // const restart = document.querySelector('.reset')
   const cells = []
 
   // * GRID VARIABLES
@@ -31,8 +31,8 @@ function init() {
   let timerID = null
   let numberOfMoves = 0
   let score = 0
-  let countdownTimerID = null 
-  let count = 5
+  // let countdownTimerID = null 
+  // let count = 5
 
   // * FUNCTIONS
 
