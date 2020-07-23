@@ -71,7 +71,7 @@ function init() {
     for (let i = 0; i < numOfCells; i++) {
       const cell = document.createElement('div')
       cells.push(cell)
-      cell.innerHTML = i
+      // cell.innerHTML = i
       grid.appendChild(cell)
     }
   }
@@ -99,7 +99,6 @@ function init() {
         clearInterval(countdownTimerID)
       } else {
         timeLeft.innerHTML = count
-        console.log(count)
       }  
     }, 1000);
   }
@@ -211,8 +210,9 @@ function moveMichelle() {
 
   function removeExplosion() {
     const remove = setTimeout(() => {
-     cells[laserPosition].classList.remove('explosion')
-    }, 100);
+      cells[laserPosition].classList.remove('explosion')
+      clearInterval(remove)
+    }, 50);
   } 
 
   function shootingLaser() {
