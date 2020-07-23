@@ -92,7 +92,7 @@ function init() {
 
   function countdownTimer() {
     let countdownTimerID = null
-    let count = 27
+    let count = 31
     countdownTimerID = setInterval(() => {
       count --
       if (count < 0) {
@@ -184,7 +184,7 @@ function moveMichelle() {
         mainGameAudio.pause()
         addOutroLostPage()
       }
-    }, 1500)
+    }, 1700)
   }
 
   function delayMoveMichelle() {
