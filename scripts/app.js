@@ -17,7 +17,7 @@ function init() {
   const introPageBtns = document.querySelectorAll('.startgame')
   const introPage = document.querySelector('.intro')
   const outroLostPage = document.querySelector('#outro-lost')
-  const finalScore = document.querySelector('#final-score')
+  const finalScore = document.querySelector('.final-score')
   const cells = []
 
   // * GRID VARIABLES
@@ -48,8 +48,8 @@ function init() {
     // outroLostPage.style.zIndex = '99'
     outroLostPage.style.opacity = '1'
     finalScore.innerHTML = score
-    audio2.src = 'assets/sashayaway2 (1).m4a'
-    audio2.play()
+    // audio2.src = 'assets/sashayaway2 (1).m4a'
+    // audio2.play()
   }
 
   function createGrid() {
@@ -148,10 +148,8 @@ function moveMichelle() {
         moveMichelleDown()
       } 
       if (michellePosition === 105) {
-        addOutroLostPage()
         clearInterval(timerID)
-        // window.alert('game over! You Scored:', score)
-        
+        addOutroLostPage()
       }
     }, 200)
   }
