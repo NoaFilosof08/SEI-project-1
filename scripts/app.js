@@ -187,6 +187,12 @@ function moveMichelle() {
     createLaser()
   }
 
+  function removeExplosion() {
+    const remove = setTimeout(() => {
+     cells[laserPosition].classList.remove('explosion')
+    }, 600);
+  } 
+
   function shootingLaser() {
     if (!laserAvail) {
       return 
@@ -203,6 +209,7 @@ function moveMichelle() {
       }
 
       if (cells[laserPosition].classList.contains('michelle')) {
+        cells[laserPosition].classList.add('explosion')
         clearInterval(laserTimerID)
         laserAvail = true
         cells[laserPosition].classList.remove('michelle')
@@ -210,6 +217,7 @@ function moveMichelle() {
           return m !== (laserPosition - michellePosition)
         })
         removeLaser()
+        removeExplosion()
         score += 1000
         scoreDisplay.innerHTML = score
       } else if (laserPosition < width) {
