@@ -162,6 +162,21 @@ ul {
   opacity: 0;
 }
 
+#outro-won {
+  position: fixed;
+  z-index: 99;
+  top: 19%;
+  left: 25%;
+  width: 600px;
+  height: 300px;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
 #resetbtn {
   font-family: 'Red Rose', cursive;
   font-size: 15px;

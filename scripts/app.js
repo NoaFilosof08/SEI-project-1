@@ -17,6 +17,7 @@ function init() {
   const introPageBtns = document.querySelectorAll('.startgame')
   const introPage = document.querySelector('.intro')
   const outroLostPage = document.querySelector('#outro-lost')
+  const outroWonPage = document.querySelector('#outro-won')
   const finalScore = document.querySelector('.final-score')
   const cells = []
 
@@ -27,7 +28,8 @@ function init() {
   // * GAME VARIABLES 
   let ruPosition = 202
   let michellePosition = width
-  let michelleStart = [15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
+  let michelleStart = [15, 16, 17] 
+    // 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
   let laserPosition = ruPosition - width
   // let michelleLaserPosition = michellePosition + (width * 3)
   let laserAvail = true
@@ -47,6 +49,15 @@ function init() {
     console.log('hi')
     // outroLostPage.style.zIndex = '99'
     outroLostPage.style.opacity = '1'
+    finalScore.innerHTML = score
+    // audio2.src = 'assets/sashayaway2 (1).m4a'
+    // audio2.play()
+  }
+
+  function addOutroWonPage() {
+    console.log('hi')
+    // outroLostPage.style.zIndex = '99'
+    outroWonPage.style.opacity = '1'
     finalScore.innerHTML = score
     // audio2.src = 'assets/sashayaway2 (1).m4a'
     // audio2.play()
@@ -205,7 +216,8 @@ function moveMichelle() {
         removeLaser()
         cells[ruPosition].classList.remove('rupaul')
         clearInterval(timerID)
-        window.alert('you have won!')
+        addOutroWonPage()
+        // window.alert('you have won!')
       }
     }, 50)
   }
