@@ -14,6 +14,7 @@ function init() {
   const outroLostPage = document.querySelector('#outro-lost')
   const outroWonPage = document.querySelector('#outro-won')
   const finalScore = document.querySelector('.final-score')
+  const timeLeft = document.querySelector('#time-left')
   // const restart = document.querySelector('.reset')
   const cells = []
 
@@ -89,6 +90,20 @@ function init() {
 
   //write a function which counts down the time left in the game
 
+  function countdownTimer() {
+    let countdownTimerID = null
+    let count = 27
+    countdownTimerID = setInterval(() => {
+      count --
+      if (count < 0) {
+        clearInterval(countdownTimerID)
+      } else {
+        timeLeft.innerHTML = count
+        console.log(count)
+      }  
+    }, 1000);
+  }
+
   // Functions for movement of Aliens 
 
   function removeMichelles() {
@@ -147,6 +162,7 @@ function init() {
   // }
 
 function moveMichelle() {
+    countdownTimer()
     mainGameAudio.src = 'assets/maingame.m4a'
     mainGameAudio.play()
     let michelleIsMovingRight = true
