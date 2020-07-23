@@ -10,7 +10,7 @@
 function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
-  const start = document.querySelector('.startgame')
+  const start = document.querySelectorAll('.startgame')
   const audio = document.querySelector('#audio')
   const scoreDisplay = document.querySelector('#score-display')
   const introPageBtns = document.querySelectorAll('.startgame')
@@ -121,7 +121,7 @@ function init() {
   // }
 
 // need to debug to say that when michelle position reaches 300 it will clear interval 
-  function moveMichelle() {
+function moveMichelle() {
     let michelleIsMovingRight = true
     timerID = setInterval(() => {
       
@@ -241,11 +241,15 @@ function init() {
 
   function beginGame() {
     playIntroMusic()
-    moveMichelle()
+    const delayMichelle = setTimeout(() => {
+      moveMichelle()
+    }, 4000)
   }
 
   // * EVENT LISTENERS
-  start.addEventListener('click', beginGame)
+  start.forEach(button => {
+    button.addEventListener('click', beginGame)
+  })
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
   introPageBtns.forEach(btn => {
