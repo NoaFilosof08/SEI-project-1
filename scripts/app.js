@@ -235,8 +235,8 @@ function moveMichelle() {
   } 
 
   function playIntroMusic() {
-    audio.src = 'assets/rupaul start your engines.1.m4a'
-    audio.play() 
+    // audio.src = 'assets/rupaul start your engines.1.m4a'
+    // audio.play() 
   }
 
   function beginGame() {
