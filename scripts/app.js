@@ -9,7 +9,7 @@ function init() {
   const mainGameAudio = document.querySelector('#main-game-audio')
   const winAudio = document.querySelector('#condragulations-audio')
   const scoreDisplay = document.querySelector('#score-display')
-  const introPageBtns = document.querySelectorAll('.startgame')
+  const introPageBtn = document.querySelector('.startgame')
   const introPage = document.querySelector('.intro')
   const outroLostPage = document.querySelector('#outro-lost')
   const outroWonPage = document.querySelector('#outro-won')
@@ -279,7 +279,7 @@ function moveMichelle() {
   })
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
-  introPageBtns.forEach(btn => {
+  introPageBtn.forEach(btn => {
     btn.addEventListener('click', removeIntroPage)
   })
   // restart.addEventListener('click', handleReset)
