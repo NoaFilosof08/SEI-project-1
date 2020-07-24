@@ -69,13 +69,11 @@ li {
   font-size: 15px;
 }
 
-.startgame {
-  display: inline;
-  /* flex-direction: row; */
+.startgame, .reset{
   font-family: 'Red Rose', cursive;
   font-size: 15px;
   font-size: bold;
-  padding: 20px;
+  padding: 15px;
   margin: 20px;
   border-radius: 5px;
   color: white;
@@ -220,16 +218,12 @@ li {
   opacity: 0;
 }
 
-.reset {
-  /* font-family: 'Red Rose', cursive; */
+/* .reset {
   font-size: 15px;
   font-size: bold;
   padding: 20px;
-  /* margin-bottom: 50px; */
+  margin: 10px;
   border-radius: 5px;
   color: white;
-  background-color: rgb(100, 209, 255;
-  /* background-image: url('../assets/mainstage.img1.jpeg'); */
-  /* background-repeat: no-repeat;
-  background-size: contain; */
-}
+  background: rgb(100, 209, 255)
+  */
