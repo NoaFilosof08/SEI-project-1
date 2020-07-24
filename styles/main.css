@@ -111,18 +111,6 @@ li {
   margin: 0;
 }
 
-#start {
-  font-family: 'Red Rose', cursive;
-  font-size: 15px;
-  font-size: bold;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 5px;
-  color: white;
-  background-image: url('../assets/workroom.img1.jpeg');
-  background-size: contain;
-}
-
 .grid-wrapper {
   height: 90vh;
   display: flex;

@@ -40,7 +40,6 @@ function init() {
     location.reload()
   }
 
-
   function removeIntroPage() {
     const delayMichelle = setTimeout(() => {
       introPage.style.zIndex = '-99'
