@@ -37,7 +37,7 @@ function init() {
 
   // * FUNCTIONS
   function resetButton() {
-    console.log('Button is being clicked')
+    location.reload()
   }
 
 
