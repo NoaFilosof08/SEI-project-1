@@ -1,4 +1,3 @@
-// change score count on winning outro page to reflect the right number 
 function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
@@ -26,15 +25,34 @@ function init() {
   let michellePosition = width
   let michelleStart = [15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
   let laserPosition = ruPosition - width
-  // let michelleLaserPosition = michellePosition + (width * 3)
   let laserAvail = true
   let timerID = null
   let numberOfMoves = 0
   let score = 0
-  // let countdownTimerID = null 
-  // let count = 5
 
   // * FUNCTIONS
+    // functions to create the grid
+    function createGrid() {
+      for (let i = 0; i < numOfCells; i++) {
+        const cell = document.createElement('div')
+        cells.push(cell)
+        grid.appendChild(cell)
+      }
+    }
+    createGrid()
+  
+    function addImages() {
+      cells[ruPosition].classList.add('rupaul')
+    }
+    addImages()
+  
+    function createMichelles() {
+      michelleStart.forEach(alien =>
+        cells[michellePosition + alien].classList.add('michelle'))
+    }
+    createMichelles()
+
+  // additional div/pages for intro/outros/buttons/timer
   function resetButton() {
     location.reload()
   }
@@ -62,31 +80,7 @@ function init() {
       winAudio.src = 'assets/condragulations.m4a'
     winAudio.play()
     }, 500);
-  
   }
-
-  function createGrid() {
-    for (let i = 0; i < numOfCells; i++) {
-      const cell = document.createElement('div')
-      cells.push(cell)
-      // cell.innerHTML = i
-      grid.appendChild(cell)
-    }
-  }
-  createGrid()
-
-  function addImages() {
-    cells[ruPosition].classList.add('rupaul')
-  }
-  addImages()
-
-  function createMichelles() {
-    michelleStart.forEach(alien =>
-      cells[michellePosition + alien].classList.add('michelle'))
-  }
-  createMichelles()
-
-  //write a function which counts down the time left in the game
 
   function countdownTimer() {
     let countdownTimerID = null
@@ -125,39 +119,6 @@ function init() {
     createMichelles()
   }
 
-  // write a function for the michelles to randomly shoot at the player 
-  // function createMichelleLaser() {
-  //   cells[michelleLaserPosition].classList.add('michelle-laser')
-  // }
-
-  // function removeMichelleLaser() {
-  //   cells[michelleLaserPosition].classList.remove('michelle-laser')
-  // }
-
-  // function moveMichelleLaser() {
-  //   removeMichelleLaser()
-  //   michelleLaserPosition = michelleLaserPosition + width 
-  //   createMichelleLaser()
-  // }
-
-  // function shootingMichelleLaser() {
-  //   michelleLaserPosition = michellePosition + width 
-  //   let michelleWillShoot = true
-  //   const michelleLaserTimerID = setInterval(() => {
-  //     if (michelleWillShoot) {
-  //       moveMichelleLaser()
-  //     } else {
-  //       clearInterval(michelleLaserTimerID)
-  //     }
-  //     michelleLaserPosition = Math.floor(Math.random() * michelleStart)
-  //     moveMichelleLaser()
-  //     if (cells[michelleLaserPosition].classList.contains('rupaul')) {
-  //       clearInterval(michelleLaserTimerID)
-  //       cells[ruPosition].classList.remove('rupaul')
-  //     }
-  //   }, 300)
-  // }
-
 function moveMichelle() {
     countdownTimer()
     mainGameAudio.src = 'assets/maingame.m4a'
@@ -191,7 +152,7 @@ function moveMichelle() {
     }, 4500);
   }
 
-  // Laser Shooting Function 
+  // Functions for shooting the laser
   function createLaser() {
     cells[laserPosition].classList.add('laser')
   }
@@ -259,7 +220,6 @@ function moveMichelle() {
   }
 
   // EXECUTIONS which handle event listeners
-  
   function handleKeyDown(e) {
     let keyDown = e.keyCode 
     if (keyDown === 32) {
@@ -300,7 +260,6 @@ function moveMichelle() {
   function beginGame() {
     playIntroMusic()
     delayMoveMichelle()
-    
   }
 
   // * EVENT LISTENERS
@@ -316,3 +275,39 @@ function moveMichelle() {
 }
 
 window.addEventListener('DOMContentLoaded', init)
+
+
+  // write a function for the michelles to randomly shoot at the player 
+  // variable:
+  // let michelleLaserPosition = michellePosition + (width * 3)
+  // function createMichelleLaser() {
+  //   cells[michelleLaserPosition].classList.add('michelle-laser')
+  // }
+
+  // function removeMichelleLaser() {
+  //   cells[michelleLaserPosition].classList.remove('michelle-laser')
+  // }
+
+  // function moveMichelleLaser() {
+  //   removeMichelleLaser()
+  //   michelleLaserPosition = michelleLaserPosition + width 
+  //   createMichelleLaser()
+  // }
+
+  // function shootingMichelleLaser() {
+  //   michelleLaserPosition = michellePosition + width 
+  //   let michelleWillShoot = true
+  //   const michelleLaserTimerID = setInterval(() => {
+  //     if (michelleWillShoot) {
+  //       moveMichelleLaser()
+  //     } else {
+  //       clearInterval(michelleLaserTimerID)
+  //     }
+  //     michelleLaserPosition = Math.floor(Math.random() * michelleStart)
+  //     moveMichelleLaser()
+  //     if (cells[michelleLaserPosition].classList.contains('rupaul')) {
+  //       clearInterval(michelleLaserTimerID)
+  //       cells[ruPosition].classList.remove('rupaul')
+  //     }
+  //   }, 300)
+  // }
