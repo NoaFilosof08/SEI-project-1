@@ -5,7 +5,6 @@
 body {
   height: 100vh;
   margin: 0;
-  /* font-family: 'Red Rose', cursive; */
   font-family: 'Audiowide', cursive;
   font-size: 10px;
   background-image: url('../assets/sparkle.img4.jpg');
@@ -162,7 +161,6 @@ li {
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 20px;
-  /* opacity: 1; */
 }
 
 .grid div.laser {
@@ -176,10 +174,7 @@ li {
   background-repeat: no-repeat;
   background-size: contain; 
   position: relative;
-  opacity: 1;
-  transition: opacity 1.5s ease-out;
 }
-
 
 .grid div.michelle-laser {
   background-image: url('../assets/laser.img2.png');
@@ -213,13 +208,3 @@ li {
   opacity: 0;
   box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-/* .reset {
-  font-size: 15px;
-  font-size: bold;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 5px;
-  color: white;
-  background: rgb(100, 209, 255)
-  */
