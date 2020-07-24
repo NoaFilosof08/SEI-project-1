@@ -3,7 +3,6 @@ function init() {
   // * DOM ELEMENTS
   const grid = document.querySelector('.grid')
   const start = document.querySelectorAll('.startgame')
-  // const countdown = document.querySelector('#countdown')
   const startAudio = document.querySelector('#audio')
   const looseAudio = document.querySelector('#audio2')
   const mainGameAudio = document.querySelector('#main-game-audio')
@@ -37,12 +36,6 @@ function init() {
   // let count = 5
 
   // * FUNCTIONS
-
-  // function handleReset() {
-  //   console.log('clicked')
-  //   // location.reload()
-    
-  // }
   function resetButton() {
     console.log('Button is being clicked')
   }
