@@ -25,7 +25,8 @@ function init() {
   // * GAME VARIABLES 
   let ruPosition = 202
   let michellePosition = width
-  let michelleStart = [15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
+  let michelleStart = [15, 16]
+    // , 17, 19, 20, 21, 22, 24, 25, 26, 30, 31, 32, 34, 35 ,36, 37, 39, 40, 41, 45, 46, 47, 49, 50, 51, 52, 54, 55, 56, 60, 61, 62, 64, 65, 66, 67, 69, 70, 71, 75, 76, 77, 79, 80, 81, 82, 84, 85, 86]
   let laserPosition = ruPosition - width
   // let michelleLaserPosition = michellePosition + (width * 3)
   let laserAvail = true
@@ -37,10 +38,15 @@ function init() {
 
   // * FUNCTIONS
 
-  function handleReset() {
-    location.reload()
-    console.log('clicked')
+  // function handleReset() {
+  //   console.log('clicked')
+  //   // location.reload()
+    
+  // }
+  function resetButton() {
+    console.log('Button is being clicked')
   }
+
 
   function removeIntroPage() {
     const delayMichelle = setTimeout(() => {
@@ -185,7 +191,7 @@ function moveMichelle() {
         mainGameAudio.pause()
         addOutroLostPage()
       }
-    }, 1700)
+    }, 200)
   }
 
   function delayMoveMichelle() {
@@ -312,8 +318,11 @@ function moveMichelle() {
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
   introPageBtn.addEventListener('click', removeIntroPage)
+  // restart.forEach(btn => {
+  //   btn.addEventListener('click', handleReset)
+  // })
   restart.forEach(btn => {
-    btn.addEventListener('click', handleReset)
+    btn.addEventListener('click', resetButton)
   })
 
   // restart.addEventListener('click', handleReset)
