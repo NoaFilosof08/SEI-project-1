@@ -318,14 +318,9 @@ function moveMichelle() {
   document.addEventListener('keyup', handleKeyUp)
   document.addEventListener('keydown', handleKeyDown)
   introPageBtn.addEventListener('click', removeIntroPage)
-  // restart.forEach(btn => {
-  //   btn.addEventListener('click', handleReset)
-  // })
   restart.forEach(btn => {
     btn.addEventListener('click', resetButton)
   })
-
-  // restart.addEventListener('click', handleReset)
 }
 
 window.addEventListener('DOMContentLoaded', init)
