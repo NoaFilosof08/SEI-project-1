@@ -1,8 +1,7 @@
 # Project 1: RuPaul's Space Invaders
 ### Overview
-RuPaul's Space invaders is a broser-based arcade stlye game. It tests your speed by challenging you to kill all the aliens before they get to you. You need to kill all the aliens before the game is over in order to win.
+RuPaul's Space invaders is a browser-based arcade stlye game. It tests your speed by challenging you to kill all the aliens before they get to you. You need to kill all the aliens before the game is over in order to win.
 This was my first project in General Assembly's Software Engineering Immersive course. It was an individual project assigned to us after 3 weeks of learning. It was the first real-life implementation of JavaScript.
-Repo for SEI project 1
 
 ## My game
 You can find the hosted version of my game here: https://noafilosof08.github.io/SEI-project-1/
@@ -16,6 +15,7 @@ Technologies:
 - HTML audio
 - CSS
 - Google Fonts
+- GitHub
 
 ## Game Instructions
 1. The game begins with an opening page, detailing the instructions of how to play and what the goal is. When you click through to start, it delays moving you to the next page in order to play the icononic 'Gentlemen start you engines...' audio.
