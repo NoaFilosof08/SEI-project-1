@@ -34,6 +34,27 @@ Technologies:
 The first step was mounting the grid to the page, this was done using JavaScript. I then created my player, making sure that the playing could move along the grid, responding to keyboard touches. The difficulty here was ensuring that the player would stick to the bottom of the grid, could only move left and right, and couldn't escape the grid. This was done using swtich statements which listened to key strokes of particular keys.
 
 Then, I created functionality to place the aliens, starting with one, and have it move down with a timer.
+
+``` javascript
+if (michelleIsMovingRight) {
+        moveMichelleRight() // this moves the alien/Michelle to the right by 1 grid space
+      } else {
+        moveMichelleLeft() // this moves the alien/Michelle to the left by one grid space
+      }
+      // shootingMichelleLaser()
+      numberOfMoves++
+      if (numberOfMoves === 3) {
+        numberOfMoves = 0
+        michelleIsMovingRight = !michelleIsMovingRight
+        moveMichelleDown() // if the alien/mMchelle has moved 3 times (to either the right or the left, then move the alien/Michelle down on the grid)
+      }
+      if (michellePosition === 105) {
+        clearInterval(timerID)
+        mainGameAudio.pause()
+        addOutroLostPage() // if the aliens/Michelle's position on the gird is at 105, then stop the timer, and the audio, and add the game over page. This is because at the point the game will be over
+      }
+```
+
 Next was creating the shoot functionality. This was done that when the player pressed the space key, laser was fired, moving up the page. This then led to the next bit of functionality, the collision. An if statement checked if the laser was on the same grid square as an alien, if it was it would remove both the alien and the laser, if not the laser would continue to the top of the page.
 
 I then added the rest of the aliens to the page and got them moving simultaneously.
@@ -47,6 +68,9 @@ A huge aspect of the game was styling, this fed into the functionality hugely, a
 
 ## Challenges
 One of the biggest challenges for me was the collision. Once I got it working, I wanted to make it look like an actual collision. The idea was that an image would appear for 1 second. However, once I did this the image was 'buggy' depending on how aggressive the player is with its shooting, the image sometimes was left over making it confusing for the player.
+
+## Key Learnings
+One of my biggest worries was working on my own. We had only done 3 weeks of coding at this point and I didn't feel to confident to tackle this task alone. However, I found that when I worked on my own, I was really good at managing my own time as well as my own expectations. I also really enjoyed being able to get really creative and pour some of my personality into the project. This project taight me that if it seems a bit scary at first, thats ok, and to just push through and deliver your best.
 
 ## Future Features
 - Adding 'levels' to the game to make it harder
